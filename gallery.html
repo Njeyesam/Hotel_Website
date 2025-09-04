@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Guru Innovation Hotel</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Static/images/image11.jpg') center/cover no-repeat;
+            background-size: cover;
+            color: #222;
+        }
+        header {
+            background: rgba(26, 34, 56, 0.7);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-top: 0;
+            color: #1a2238;
+        }
+        h2 {
+            color: #eebc1d;
+            margin-top: 30px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            background: rgba(26, 34, 56, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        .gallery-item h3 {
+            margin: 10px 0 5px 0;
+            color: #1a2238;
+        }
+        .gallery-item p {
+            color: #222;
+            font-size: 0.95rem;
+            margin: 0 10px 10px 10px;
+        }
+        footer {
+            background: rgba(26, 34, 56, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guru Innovation Hotel</h1>
+        <p>Gallery</p>
+    </header>
+    <div class="container">
+        <h2>Explore Our Hotel</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="Static/images/lobby.jpg" alt="Lobby">
+                <h3>Lobby</h3>
+                <p>Modern and welcoming lobby with comfortable seating and elegant decor.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/restaurant.jpg" alt="Restaurant">
+                <h3>Restaurant</h3>
+                <p>Enjoy a variety of local and international dishes in our stylish restaurant.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/bar.jpg" alt="Bar">
+                <h3>Bar</h3>
+                <p>Relax with a drink at our well-stocked bar, featuring a wide selection of beverages.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/pool.jpg" alt="Swimming Pool">
+                <h3>Swimming Pool</h3>
+                <p>Outdoor pool perfect for relaxation and leisure.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/gym.jpg" alt="Fitness Center">
+                <h3>Fitness Center</h3>
+                <p>Stay fit with our state-of-the-art gym equipment.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/room1.jpg" alt="Deluxe Room">
+                <h3>Deluxe Room</h3>
+                <p>Elegant room with a queen bed, city view, and modern amenities.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/room2.jpg" alt="Executive Suite">
+                <h3>Executive Suite</h3>
+                <p>Spacious suite with king bed, living area, and premium facilities.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/room3.jpg" alt="Standard Room">
+                <h3>Standard Room</h3>
+                <p>Comfortable room with double bed, work desk, and free Wi-Fi.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/room4.jpg" alt="Family Suite">
+                <h3>Family Suite</h3>
+                <p>Large suite with two bedrooms, lounge, and kitchenette for families.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/room5.jpg" alt="Presidential Suite">
+                <h3>Presidential Suite</h3>
+                <p>Ultimate luxury with king bed, private balcony, and exclusive services.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/conference.jpg" alt="Conference Room">
+                <h3>Conference Room</h3>
+                <p>Modern meeting and event spaces for business and celebrations.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/shuttle.jpg" alt="Airport Shuttle">
+                <h3>Airport Shuttle</h3>
+                <p>Convenient airport transfer service for guests.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/laundry.jpg" alt="Laundry Service">
+                <h3>Laundry Service</h3>
+                <p>Professional laundry and dry cleaning services available.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="Static/images/roomservice.jpg" alt="Room Service">
+                <h3>Room Service</h3>
+                <p>Order food and drinks to your room any time of day.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Guru Innovation

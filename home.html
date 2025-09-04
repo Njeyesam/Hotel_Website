@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Innovation Hotel | Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+        header {
+            background: rgba(26, 34, 56, 0.7);
+             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: rgba(26, 34, 56, 0.7);
+            background-color: rgba(26, 34, 56, 0.7);
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #eebc1d;
+        }
+        .hero {
+            background: url('Static/images/image2.jpg') center/cover no-repeat;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin: 15px 0 30px;
+        }
+        .hero a {
+            background: #eebc1d;
+            color: #1a2238;
+            padding: 12px 32px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+        .hero a:hover {
+            background: #fff;
+            color: #1a2238;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        .feature {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 30px 25px;
+            width: 280px;
+            text-align: center;
+        }
+        .feature img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+        footer {
+            background: #1a2238;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 40px;
+        }
+        @media (max-width: 800px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+    <!-- Google Translate widget script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+    <header>
+        <h2>Guru Innovation Hotel</h2>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="rooms.html">Rooms</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+  
+
+    <section class="hero">
+        <h1>Welcome to Guru Innovation Hotel</h1>
+        <p>Experience luxury, comfort, and unforgettable hospitality in the heart of the city.</p>
+        <a href="booking.html">Book Now</a>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <img src="Static/images/gym.jpg" alt="Gym">
+            <h3>Modern Gym</h3>
+            <p>Stay fit with our state-of-the-art fitness center, open 24/7 for all guests.</p>
+        </div>
+        <div class="feature">
+            <img src="Static/images/image3.jpg" alt="Pool">
+            <h3>Infinity Pool</h3>
+            <p>Relax and unwind in our rooftop infinity pool with stunning city views.</p>
+        </div>
+        <div class="feature">
+            <img src="Static/images/image4.jpg" alt="Dining">
+            <h3>Fine Dining</h3>
+            <p>Enjoy gourmet cuisine at our award-winning restaurant and bar.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Guru Innovation Hotel. All rights reserved.
+    </footer>
+</body>
+</html>
