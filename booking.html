@@ -3,13 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book a Room | Guru Innovation Hotel</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Static/images/image11.jpg') center/cover no-repeat;
+            background-size: cover;
+            color: #222;
+        }
+        header {
+            background: rgba(26, 34, 56, 0.7);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.92);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a2238;
+            margin-top: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #eebc1d;
+            color: #1a2238;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1a2238;
+            color: #fff;
+        }
+        .note {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: rgba(26, 34, 56, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <div>
-            Calabar Continental
+    <header>
+        <h1>Guru Innovation Hotel</h1>
+        <p>Book a Room</p>
+    </header>
+    <div class="container">
+        <form id="bookingForm">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="roomtype">Room Type</label>
+            <select id="roomtype" name="roomtype" required>
+                <option value="">-- Select Room Type --</option>
+                <option value="Deluxe Room">Deluxe Room (₦35,000/night)</option>
+                <option value="Executive Suite">Executive Suite (₦55,000/night)</option>
+                <option value="Standard Room">Standard Room (₦25,000/night)</option>
+                <option value="Family Suite">Family Suite (₦70,000/night)</option>
+                <option value="Presidential Suite">Presidential Suite (₦120,000/night)</option>
+            </select>
+
+            <label for="checkin">Check-in Date</label>
+            <input type="date" id="checkin" name="checkin" required>
+
+            <label for="checkout">Check-out Date</label>
+            <input type="date" id="checkout" name="checkout" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="10" required>
+
+            <label for="requests">Special Requests</label>
+            <input type="text" id="requests" name="requests" placeholder="Optional">
+
+            <button type="submit">Book Now</button>
+        </form>
+        <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'confirmation.html';
+        });
+    </script>
+        <div class="note">
+            Need help? Call us at +234 803 123 4567 or email <a href="mailto:info@guruinnovationhotel.com">info@guruinnovationhotel.com</a>
         </div>
     </div>
-</body>
-</html>
+    <footer>
+        &copy; 2025 Guru Innovation Hotel. All rights reserved.
+    </footer>
+    
