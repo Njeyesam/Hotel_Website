@@ -1,31 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./Static/css/booking.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stepper Example</title>
+  <link rel="stylesheet" href="Static/css/booking.css">
 </head>
-<body>
-    <div class="container1">
-        <div>
-            Calabar Continental
+<body style="background: url('Static/css/images/image13.jpg');">
+    <div class="header">
+        <div class="Container1">
+            <div>Calabar Continental</div>
+            <div>
+                <button>USD</button>
+                <button>LANGUAGE</button>
+            </div>
         </div>
-        <div>
-            <input type="text">
-            <input type="text">
+        <div class="stepper">
+            <div class="step active">
+                <div class="circle">1</div>
+                <div class="label">Dates</div>
+            </div>
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="label">Categories</div>
+            </div>
+            <div class="step">
+                <div class="circle">3</div>
+                <div class="label">Rates</div>
+            </div>
+            <div class="step">
+                <div class="circle">4</div>
+                <div class="label">Summary</div>
+            </div>
+            <div class="step">
+                <div class="circle">5</div>
+                <div class="label">Details</div>
+            </div>
         </div>
     </div>
-    <hr>
-    <div>
-        <option value="">Calendar</option>
-        <option value="">Available rooms</option>
-        <option value="">rates</option>
-        <option value="">payment</option>
-        
-    </div>
-    <div>
 
+    <!-- Step Pages -->
+    <div class="step_pages">
+        <div id="page1" class="page active">
+            <div class="in-page1">
+                <div>Dates</div>
+                <div>
+                    <input type="text" id="dateInput" placeholder="Select a date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+                </div>
+                <hr>
+                <div class="text">
+                    <div>Adults</div>
+                    <div>Children</div>
+                    <div>
+                        <input type="number" name="" id="" value="0" min="0">
+                    </div>
+                    <div><input type="number" name="" id="" value="0" min="0"></div>
+                </div>
+                <hr>
+                <div><button type="submit">Next</button></div>
+            </div>
+        </div>
+        <div id="page2" class="page">
+            <h2>Select a Category</h2>
+            <div class="images">
+                <div>
+                    <img src="Static/css/images/image1.jpg" alt="" srcset="">
+                    <h3>Lark suite</h3>
+                    <p>Maximum persons:  4</p>
+                    
+                </div>
+                <div>
+                    <img src="Static/css/images/image2.jpg" alt="" srcset="">
+                    <h3>Lark suite</h3>
+                    <p>Maximum persons:  2</p>
+                </div>
+                <div>
+                    <img src="Static/css/images/image3.jpg" alt="" srcset="">
+                    <h3>Lark suite</h3>
+                    <p>Maximum persons:  2</p>
+                </div>
+                <div>
+                    <img src="Static/css/images/image4.jpg" alt="" srcset="">
+                    <h3>Lark suite</h3>
+                    <p>Maximum persons:  2</p>
+                </div>
+                <div>
+                    <img src="Static/css/images/image7.jpg" alt="" srcset="">
+                    <h3>Lark suite</h3>
+                    <p>Maximum persons:  2</p>
+                </div>
+            </div>
+        </div>
+        <div id="page3" class="page">
+            <h2>Step 3: Rates</h2>
+            <p>View and select rates.</p>
+        </div>
+        <div id="page4" class="page">
+            <h2>Step 4: Summary</h2>
+            <p>Review your selections.</p>
+        </div>
+        <div id="page5" class="page">
+            <h2>Step 5: Details</h2>
+            <p>Enter your details to finish.</p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div>
+            <button id="press"  onclick="prevStep()">Previous</button>
+            <button id="press"  onclick="nextStep()">Next</button>
+        </div>
     </div>
+
+  <script src="Static/scripts/booking.js"></script>
+
 </body>
 </html>
