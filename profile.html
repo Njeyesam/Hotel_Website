@@ -14,7 +14,7 @@
             color: #222;
         }
         .profile-container {
-            max-width: 400px;
+            max-width: 420px;
             margin: 60px auto;
             background: rgba(26, 34, 56, 0.7);
             color: #fff;
@@ -41,8 +41,12 @@
         .profile-info {
             font-size: 1.05rem;
             margin-bottom: 18px;
+            text-align: left;
         }
-        .profile-actions a {
+        .profile-info div {
+            margin-bottom: 8px;
+        }
+        .profile-actions a, .profile-actions button {
             display: inline-block;
             background: #eebc1d;
             color: #1a2238;
@@ -52,8 +56,10 @@
             font-weight: bold;
             margin: 0 8px 8px 0;
             transition: background 0.2s;
+            border: none;
+            cursor: pointer;
         }
-        .profile-actions a:hover {
+        .profile-actions a:hover, .profile-actions button:hover {
             background: #1a2238;
             color: #fff;
         }
@@ -80,6 +86,41 @@
             background: #1a2238;
             color: #fff;
         }
+        .edit-form {
+            margin-top: 18px;
+            text-align: left;
+        }
+        .edit-form label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+        .edit-form input[type="text"],
+        .edit-form input[type="email"] {
+            width: 100%;
+            padding: 7px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        .edit-form input[type="file"] {
+            margin-bottom: 12px;
+        }
+        .edit-form button {
+            background: #eebc1d;
+            color: #1a2238;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .edit-form button:hover {
+            background: #1a2238;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -89,26 +130,98 @@
         <div class="profile-info" id="profileInfo">
             <div><strong>Username:</strong> <span id="profileUsername">guest</span></div>
             <div><strong>Email:</strong> <span id="profileEmail">guest@example.com</span></div>
+            <div><strong>Full Name:</strong> <span id="profileFullName">Not set</span></div>
+            <div><strong>Phone:</strong> <span id="profilePhone">Not set</span></div>
         </div>
         <div class="profile-actions">
             <a href="booking.html">Book a Room</a>
             <a href="dashboard.html">Dashboard</a>
-            <a href="#" class="logout-btn" onclick="logout()">Log Out</a>
+            <button onclick="showEditForm()">Edit Profile</button>
+            <button class="logout-btn" onclick="logout()">Log Out</button>
         </div>
+        <form class="edit-form" id="editForm" style="display:none;" onsubmit="saveProfile(event)">
+            <label for="editFullName">Full Name:</label>
+            <input type="text" id="editFullName" name="editFullName">
+
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="editEmail">
+
+            <label for="editPhone">Phone:</label>
+            <input type="text" id="editPhone" name="editPhone">
+
+            <label for="editProfilePic">Profile Picture:</label>
+            <input type="file" id="editProfilePic" name="editProfilePic" accept="image/*">
+
+            <button type="submit">Save</button>
+            <button type="button" onclick="hideEditForm()" style="background:#d9534f;color:#fff;">Cancel</button>
+        </form>
         <a href="home.html" class="back-home">Back to Home</a>
     </div>
     <script>
-        // Example: Load user info from localStorage (if available)
-        const username = localStorage.getItem('hotelLoggedIn') || 'guest';
-        document.getElementById('profileName').textContent = username.charAt(0).toUpperCase() + username.slice(1);
-        document.getElementById('profileUsername').textContent = username;
-        // You can extend this to load email and profile picture if stored
-        if(username !== 'guest') {
-            document.getElementById('profileEmail').textContent = username + '@guruinnovationhotel.com';
+        // Load user info from localStorage (if available)
+        function loadProfile() {
+            const username = localStorage.getItem('hotelLoggedIn') || 'guest';
+            document.getElementById('profileName').textContent = username.charAt(0).toUpperCase() + username.slice(1);
+            document.getElementById('profileUsername').textContent = username;
+
+            // Load profile data
+            const profile = JSON.parse(localStorage.getItem('profile_' + username) || '{}');
+            document.getElementById('profileEmail').textContent = profile.email || (username !== 'guest' ? username + '@guruinnovationhotel.com' : 'guest@example.com');
+            document.getElementById('profileFullName').textContent = profile.fullName || 'Not set';
+            document.getElementById('profilePhone').textContent = profile.phone || 'Not set';
+
+            // Load profile picture if set
+            if (profile.pic) {
+                document.getElementById('profilePic').src = profile.pic;
+            } else {
+                document.getElementById('profilePic').src = "Static/images/profile-icon.png";
+            }
+        }
+
+        function showEditForm() {
+            const username = localStorage.getItem('hotelLoggedIn') || 'guest';
+            const profile = JSON.parse(localStorage.getItem('profile_' + username) || '{}');
+            document.getElementById('editFullName').value = profile.fullName || '';
+            document.getElementById('editEmail').value = profile.email || '';
+            document.getElementById('editPhone').value = profile.phone || '';
+            document.getElementById('editForm').style.display = 'block';
+        }
+
+        function hideEditForm() {
+            document.getElementById('editForm').style.display = 'none';
+        }
+
+        function saveProfile(e) {
+            e.preventDefault();
+            const username = localStorage.getItem('hotelLoggedIn') || 'guest';
+            const profile = JSON.parse(localStorage.getItem('profile_' + username) || '{}');
+            profile.fullName = document.getElementById('editFullName').value;
+            profile.email = document.getElementById('editEmail').value;
+            profile.phone = document.getElementById('editPhone').value;
+
+            // Handle profile picture upload
+            const fileInput = document.getElementById('editProfilePic');
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    profile.pic = evt.target.result;
+                    localStorage.setItem('profile_' + username, JSON.stringify(profile));
+                    loadProfile();
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                localStorage.setItem('profile_' + username, JSON.stringify(profile));
+                loadProfile();
+            }
+            hideEditForm();
         }
 
         function logout() {
             localStorage.removeItem('hotelLoggedIn');
             window.location.href = 'home.html';
         }
+
+        // Initial load
+        loadProfile();
     </script>
+</
